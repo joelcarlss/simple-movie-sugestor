@@ -20,7 +20,7 @@ api = Api(app)
 
 api.add_resource(Users, '/users')  # Route_1
 api.add_resource(FindEuclidean, '/find/euclidean/<user_id>/<amount>')
-api.add_resource(FindPearson, '/find/pearson/<user_id>//<amount>')
+api.add_resource(FindPearson, '/find/pearson/<user_id>/<amount>')
 
 if __name__ == '__main__':
     app.run(port='5002')

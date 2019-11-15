@@ -22,24 +22,20 @@ class FindEuclidean(Resource):
         total_sim = calc_added_sim(sim)
         movie_results = get_movies_object(total_sim, total_movie_score)
         recommended = highest_values(movie_results, amount)
-        return {'res': recommended}  # Fetches first column that is Employee ID
+        return {'res': recommended}
 
 
 class FindPearson(Resource):
-    def get (self, user_id=0, amount=0):
+    def get (self, user_id=1, amount=0):
         amount = int(float(amount))
-        sim = current_user, other_users = get_rating_from_db(user_id)
+        current_user, other_users = get_rating_from_db(user_id)
+        sim = pearson(current_user, other_users)
+        rating = calc_rating(user_id, sim)
+        total_movie_score = calc_movie_score(rating, user_id)
+        total_sim = calc_added_sim(sim)
+        movie_results = get_movies_object(total_sim, total_movie_score)
+        recommended = highest_values(movie_results, amount)
+        return {'res': recommended}
 
 
-def findTopPearson(user_id=1, amount=0):
-    amount = int(float(amount))
-    current_user, other_users = get_rating_from_db(user_id)
-    sim = pearson(current_user, other_users)
-    rating = calc_rating(user_id, sim)
-    total_movie_score = calc_movie_score(rating, user_id)
-    total_sim = calc_added_sim(sim)
-    movie_results = get_movies_object(total_sim, total_movie_score)
-    recommended = highest_values(movie_results, amount)
 
-
-findTopPearson()

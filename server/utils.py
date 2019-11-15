@@ -78,9 +78,13 @@ def calc_rating(uid, sim):
 
 
 def highest_values(arr, amount):
-    amount = amount+1
     arr.sort(key=last_val)
-    return arr[:-amount:-1]
+    print(len(arr))
+    print(amount)
+    if len(arr) <= amount or amount <= 0:
+        return arr
+    else:
+        return arr[:-(amount+1):-1]
 
 
 def last_val(arr):
