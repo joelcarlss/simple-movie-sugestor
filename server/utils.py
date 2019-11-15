@@ -52,8 +52,9 @@ def get_movies_object(sim, w_score):
     movies = query_db("select * from movies")
     for movie in movies:
         if str(movie["id"]) in w_score:
-            movie["w_score"] = (w_score[str(movie["id"])] / sim)
-            result.append(movie)
+            movie["w_score"] = round((w_score[str(movie["id"])] / sim), 3)
+            if movie["w_score"] >= 0:
+                result.append(movie)
 
     return result
 
