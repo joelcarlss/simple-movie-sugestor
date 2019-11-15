@@ -31,7 +31,7 @@ class FindPearson(Resource):
         sim = current_user, other_users = get_rating_from_db(user_id)
 
 
-def findTopPearson(user_id=3, amount=0):
+def findTopPearson(user_id=1, amount=0):
     amount = int(float(amount))
     current_user, other_users = get_rating_from_db(user_id)
     sim = pearson(current_user, other_users)
