@@ -11,13 +11,6 @@ CORS(app)
 api = Api(app)
 
 
-
-
-# sim = euclidean_sim(1)
-# rating = calc_rating(1, sim)
-# recommended = highest_values(rating, 3)
-# print(recommended)
-
 api.add_resource(Users, '/users')  # Route_1
 api.add_resource(FindEuclidean, '/find/euclidean/<user_id>/<amount>')
 api.add_resource(FindPearson, '/find/pearson/<user_id>/<amount>')

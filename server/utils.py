@@ -3,36 +3,6 @@ from database import mycursor
 from model import *
 import json
 
-def read_movies():
-    sql = "INSERT INTO movies (id, title, year) VALUES (%s, %s, %s)"
-    with open('./movies_large/movies.csv', 'r') as csvfile:
-        readcsv = csv.reader(csvfile, delimiter=';')
-        for row in readcsv:
-            print(row[0].isnumeric())
-            if row[0].isnumeric():
-                val = (row[0], row[1], row[2])
-                mycursor.execute(sql, val)
-
-
-def read_users():
-    sql = "INSERT INTO users (userId, name) VALUES (%s, %s)"
-    with open('./movies_large/users.csv') as csvfile:
-        readcsv = csv.reader(csvfile, delimiter=';')
-        for row in readcsv:
-            if row[0].isnumeric():
-                val = (row[0], row[1])
-                mycursor.execute(sql, val)
-
-
-def read_ratings():
-    sql = "INSERT INTO ratings (userId, movieId, rating) VALUES (%s, %s, %s)"
-    with open('./movies_large/ratings.csv') as csvfile:
-        readcsv = csv.reader(csvfile, delimiter=';')
-        for row in readcsv:
-            if row[0].isnumeric():
-                val = (row[0], row[1], row[2])
-                mycursor.execute(sql, val)
-
 
 def query_db(query, args=(), one=False):
     mycursor.execute(query, args)
