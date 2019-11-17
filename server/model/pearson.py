@@ -13,7 +13,6 @@ def pearson(user_a, other_users):
                 uid = rate_b["userId"]
                 a_score = float(rate_a["rating"])
                 b_score = float(rate_b["rating"])
-
                 result[uid]["sum1"] += a_score
                 result[uid]["sum2"] += b_score
                 result[uid]["sum1sq"] += a_score**2
@@ -26,9 +25,16 @@ def pearson(user_a, other_users):
             result[res] = 0
         else:
             c = result[res]
+
             num = c["pSum"] - ((c["sum1"] * c["sum2"]) / c["count"])
+
             den = math.sqrt((c["sum1sq"] - c["sum1"]**2 / c["count"]) * (c["sum2sq"] - c["sum2"]**2 / c["count"]))
 
-            result[res] = num/den
+            if num/den < 0:
+                result[res] = 0
+            else:
+                result[res] = num/den
+
+    print(result)
 
     return result

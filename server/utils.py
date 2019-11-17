@@ -40,7 +40,7 @@ def calc_rating(uid, sim):
             new_r = {}
             for v in r:
                 new_r[v] = r[v]
-            w_score = round(float(r["rating"]) * sim[r["userId"]], 3)
+            w_score = float(r["rating"]) * sim[r["userId"]]
             new_r["wScore"] = w_score
             arr.append(new_r)
         i += 1
@@ -49,13 +49,13 @@ def calc_rating(uid, sim):
 
 
 def highest_values(arr, amount):
-    arr.sort(key=last_val)
+    arr.sort(key=last_val, reverse=True)
     print(len(arr))
     print(amount)
     if len(arr) <= amount or amount <= 0:
         return arr
     else:
-        return arr[:-(amount+1):-1]
+        return arr[0:amount:]
 
 
 def last_val(arr):

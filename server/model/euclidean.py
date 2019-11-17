@@ -6,7 +6,7 @@ def euclidean(user_a, users):
                 if not val_b["userId"] in result:
                     result[val_b["userId"]] = {"sim": 0, "count": 0}
 
-                result[val_b["userId"]]["sim"] += (float(val_a["rating"]) - float(val_b["rating"]))**2
+                result[val_b["userId"]]["sim"] += (round(float(val_a["rating"]), 2) - round(float(val_b["rating"]), 2))**2
                 result[val_b["userId"]]["count"] += 1
 
     for a in result:
