@@ -18,7 +18,6 @@ class FindEuclideanUsers(Resource):
         current_user, other_users = get_user_ratings_form_db(user_id)
         sim = euclidean_for_every_user(current_user, other_users)
         user_result = get_user_object(sim)
-        print(user_result)
         recommended = highest_values(user_result, amount)
         return {'res': recommended}  # Fetches first column that is Employee ID
 
