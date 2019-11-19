@@ -97,3 +97,14 @@ def calc_added_sim(sim, movie_id):
 
     return total
 
+
+def get_user_object(sim):
+    result = []
+    users = query_db("select * from users")
+    for user in users:
+        if str(user["userId"]) in sim:
+            obj = user
+            obj["w_score"] = sim[str(user["userId"])]
+            result.append(obj)
+
+    return result

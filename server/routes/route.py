@@ -12,6 +12,27 @@ class Users(Resource):
         return {'res': result}  # Fetches first column that is Employee ID
 
 
+class FindEuclideanUsers(Resource):
+    def get(self, user_id, amount):
+        amount = int(float(amount))
+        current_user, other_users = get_user_ratings_form_db(user_id)
+        sim = euclidean_for_every_user(current_user, other_users)
+        user_result = get_user_object(sim)
+        print(user_result)
+        recommended = highest_values(user_result, amount)
+        return {'res': recommended}  # Fetches first column that is Employee ID
+
+
+class FindPearsonUsers(Resource):
+    def get(self, user_id, amount):
+        amount = int(float(amount))
+        current_user, other_users = get_user_ratings_form_db(user_id)
+        sim = pearson_for_every_user(current_user, other_users)
+        user_result = get_user_object(sim)
+        recommended = highest_values(user_result, amount)
+        return {'res': recommended}  # Fetches first column that is Employee ID
+
+
 class FindEuclidean(Resource):
     def get(self, user_id, amount):
         amount = int(float(amount))

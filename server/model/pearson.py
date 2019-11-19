@@ -3,7 +3,6 @@ import math
 
 # This one is used if only comparing two users
 def pearson_compare(user_a, user_b):
-    ## TODO: Test make vars to floats
     count = 0
     sum1 = 0
     sum2 = 0
