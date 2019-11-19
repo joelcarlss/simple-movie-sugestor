@@ -30,16 +30,16 @@ def euclidean_for_every_user(user_a, other_users):
 
 # This one is used if only comparing two users
 def euclidean_compare(user_a, user_b):
-    count = 0;
+    count = 0
     sim = 0
     for val_a in user_a:
         for val_b in user_b:
             if val_a["movieId"] == val_b["movieId"]:
-                sim += (round(float(val_a["rating"]), 2) - round(float(val_b["rating"]), 2))**2
+                sim += (float(val_a["rating"]) - float(val_b["rating"])) ** 2
                 count += 1
 
     if count <= 0:
-        return 0;
+        return 0
     else:
-        return round(1/(1 + sim), 3)
+        return 1/(1 + sim)
 

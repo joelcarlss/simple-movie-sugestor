@@ -10,7 +10,6 @@ app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
-
 api.add_resource(Users, '/users')  # Route_1
 api.add_resource(FindEuclidean, '/find/euclidean/<user_id>/<amount>')
 api.add_resource(FindPearson, '/find/pearson/<user_id>/<amount>')

@@ -19,8 +19,7 @@ class FindEuclidean(Resource):
         sim = euclidean_for_every_user(current_user, other_users)
         rating = calc_rating(user_id, sim)
         total_movie_score = calc_movie_score(rating, user_id)
-        total_sim = calc_added_sim(sim)
-        movie_results = get_movies_object(total_sim, total_movie_score)
+        movie_results = get_movies_object(sim, total_movie_score)
         recommended = highest_values(movie_results, amount)
         return {'res': recommended}
 
@@ -32,8 +31,7 @@ class FindPearson(Resource):
         sim = pearson_for_every_user(current_user, other_users)
         rating = calc_rating(user_id, sim)
         total_movie_score = calc_movie_score(rating, user_id)
-        total_sim = calc_added_sim(sim)
-        movie_results = get_movies_object(total_sim, total_movie_score)
+        movie_results = get_movies_object(sim, total_movie_score)
         recommended = highest_values(movie_results, amount)
         return {'res': recommended}
 

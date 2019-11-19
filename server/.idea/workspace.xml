@@ -4,8 +4,12 @@
     <list default="true" id="bde32bbb-f064-49f1-aad6-5fd1ee8bd359" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../client" beforeDir="false" afterPath="$PROJECT_DIR$/../client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/euclidean.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/euclidean.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/pearson.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/pearson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies_large/movies.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies_large/ratings.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies_large/users.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
@@ -29,6 +33,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
