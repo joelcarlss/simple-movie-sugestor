@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/euclidean.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/euclidean.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/pearson.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/pearson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +66,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

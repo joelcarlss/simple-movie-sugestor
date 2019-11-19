@@ -4,6 +4,7 @@ from model import *
 import json
 
 
+# Returns arrays with objects
 def query_db(query, args=(), one=False):
     mycursor.execute(query, args)
     r = [dict((mycursor.description[i][0], value)
@@ -15,6 +16,19 @@ def get_rating_from_db(uid):
     other = query_db("select distinct userId, movieId, rating from ratings WHERE NOT userId = %s", (uid,))
     selected = query_db("select distinct userId, movieId, rating from ratings WHERE userId = %s;", (uid,))
     return selected, other
+
+
+def get_user_ratings_form_db(uid):
+    selected = query_db("select distinct userId, movieId, rating from ratings WHERE userId = %s;", (uid,))
+    other_users = []
+    users = query_db("select * from users WHERE NOT userId = %s", (uid,))
+    for user in users:
+        rating = query_db("select distinct userId, movieId, rating from ratings WHERE userId = %s;", (user["userId"],))
+        other_users.append(rating)
+
+    return selected, other_users
+
+
 
 
 def get_movies_object(sim, w_score):
@@ -50,8 +64,6 @@ def calc_rating(uid, sim):
 
 def highest_values(arr, amount):
     arr.sort(key=last_val, reverse=True)
-    print(len(arr))
-    print(amount)
     if len(arr) <= amount or amount <= 0:
         return arr
     else:
@@ -71,7 +83,6 @@ def calc_movie_score(arr, user_id):
                 movies[k["movieId"]] = 0
             movies[k["movieId"]] += k["wScore"]
 
-    # print(movies)
     return movies
 
 
