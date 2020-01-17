@@ -5,7 +5,7 @@ mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     passwd="password",
-    database="smallset"
+    database="mavs"
 )
 mydb.commit()
 

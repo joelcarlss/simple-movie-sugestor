@@ -18,6 +18,8 @@ def get_rating_from_db(uid):
     return selected, other
 
 
+# User Based
+
 def get_user_ratings_form_db(uid):
     selected = query_db("select * from ratings WHERE userId = %s;", (uid,))
     other_users = []
@@ -28,6 +30,21 @@ def get_user_ratings_form_db(uid):
 
     return selected, other_users
 
+
+# Item Based
+
+def get_movie_ratings_form_db(movie_id):
+    selected = query_db("select * from ratings WHERE movieId = %s;", (movie_id,))
+    other_movies = []
+    movies = query_db("select * from movies WHERE NOT id = %s", (movie_id,))
+    for movie in movies:
+        rating = query_db("select * from ratings WHERE movieId = %s;", (movie["id"],))
+        other_movies.append(rating)
+
+    return selected, other_movies
+
+
+# Other utils
 
 def user_has_seen_movie_id(uid, movieId):
     selected = query_db("select * from ratings WHERE userId = %s AND movieId = %s;", (uid, movieId,))
@@ -82,7 +99,11 @@ def get_movies_object(sim, w_score):
     for movie in movies:
         if str(movie["id"]) in w_score:
             total_sim = calc_added_sim(sim, movie["id"])
-            movie["w_score"] = (w_score[str(movie["id"])] / total_sim)
+            if total_sim == 0:
+                movie["w_score"] = 0
+            else:
+                movie["w_score"] = (w_score[str(movie["id"])] / total_sim)
+
             if movie["w_score"] >= 0:
                 result.append(movie)
 

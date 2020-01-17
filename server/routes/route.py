@@ -3,6 +3,7 @@ from database import *
 from model.pearson import *
 from model.euclidean import *
 from utils import *
+from item_based import *
 from json import *
 
 
@@ -56,4 +57,16 @@ class FindPearson(Resource):
         return {'res': recommended}
 
 
+def item_based():
+    movie_id = 1
+    current_movie, other_movies = get_movie_ratings_form_db(movie_id)
+    sim = euclidean_for_every_movie(current_movie, other_movies)
 
+    # rating = calc_rating(movie_id, sim)
+    # total_movie_score = calc_movie_score(rating, user_id)
+    # movie_results = get_movies_object(sim, total_movie_score)
+    # recommended = highest_values(movie_results, amount)
+    print(sim)
+
+
+item_based()
